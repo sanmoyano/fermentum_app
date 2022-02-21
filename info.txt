@@ -1,0 +1,32 @@
+CLASE 03
+
+La carpeta siempre se debe llamar src/ 
+La rama para que corra react es :
+    src/
+        |_index.js
+
+JSX: JS + XML
+const App = () => {}
+
+En JSX va ser 
+    App () === <App/>
+
+COMPONENTES :
+1) Siempre son funciones
+2) Siempre retornan algo
+3) Siempre la primera en mayuscula
+4) Siempre retornan una sola cosa, puede ser una sola cosa con varias cosas adentro. 
+
+
+FRAGMENT : 
+Utilizar una etiqueta invisible en el dom para cargar los elementos <fragment> o <> ejemplo :
+    const App = () => {
+        return (
+            <>
+                <header> header </header>
+                <footer> Footer </footer>
+            </> 
+        )
+    }
+
+rafce => atajo para crear el componente de React 
