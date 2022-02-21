@@ -5,10 +5,10 @@ const NavBar = () => {
                 <h1>Fermentum Faber</h1>
                 <div className="nav-bar-items">
                     <ul>
-                        <li>Inicio</li>
-                        <li>Cervezas</li>
-                        <li>Tienda</li>
-                        <li>Contacto</li>
+                        <li> <a href="">Inicio</a></li>
+                        <li> <a href="">Cervezas</a></li>
+                        <li> <a href="">Contacto</a></li>
+                        <li> <a href="">Tienda</a></li>
                     </ul>
                 </div>
             </nav>

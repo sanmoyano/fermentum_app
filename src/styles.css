@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap');
 
 * {
     margin: 0;
@@ -22,6 +23,8 @@ header {
 .nav-bar h1 {
     color: whitesmoke;
     margin-inline: 24px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4rem;
 }
 
 .nav-bar-items ul {
@@ -32,9 +35,12 @@ header {
 }
 
 .nav-bar-items li {
+    list-style: none;
+}
+
+li a {
     text-decoration: none;
     color: whitesmoke;
-    list-style: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
