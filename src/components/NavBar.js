@@ -1,17 +1,12 @@
+import Nav from "./Nav"
+import CartWidget from "./CartWidget"
+
 const NavBar = () => {
     return (
-        <header>
-            <nav className="nav-bar">
-                <h1>Fermentum Faber</h1>
-                <div className="nav-bar-items">
-                    <ul>
-                        <li> <a href="">Inicio</a></li>
-                        <li> <a href="">Cervezas</a></li>
-                        <li> <a href="">Contacto</a></li>
-                        <li> <a href="">Tienda</a></li>
-                    </ul>
-                </div>
-            </nav>
+        <header id="header__layout">
+            <h1>Fermentum Faber</h1>
+            <Nav/>
+            <CartWidget/>
         </header>
     )
 }

@@ -57,7 +57,6 @@ COMPONENTES :
 5) Siempre pueden recibir props
 6) Los props son de SOLO LECTURA
 
-
 COMPONENTES PRESENENTACIONALES : Son componentes que sirven mas que nada para mostrar algo en pantalla, por lo general no buscan la info en el exterior sino que la reciben como props
 
 COMPONENTES CONTAINER : Son componentes que necesitan de una API externa o la generan/leen de algun lugar para funcionar
@@ -65,7 +64,7 @@ COMPONENTES CONTAINER : Son componentes que necesitan de una API externa o la ge
 
 VANILLA JS
 
-function foo(nombre,edad){
+function foo(nombre,edad){ ---> uno le tiene que cargar la cantidad de parametros que quiere recibir 
     nombre = "Otro Nombre"
     console.log(nombre)
 }
@@ -74,35 +73,46 @@ foo("Horacio",32)
 
 REACT JS
 
-function Foo(parametros){
+function Foo(parametros){ ---> un solo parametro
     console.log(nombre)
 }
 
 <Foo nombre="Horacio" edad="32"/>
 
+Parametros de la funcion == "props"
+
+function Foo(props){
+    console.log(nombre)
+}
+
 DESTRUCTURING
 
 const arr = [1,2,3]
 
+Forma convencional
 const uno = arr[0]
 const dos = arr[1]
 const tres = arr[2]
 
+array DESTRUCTURING
 const [uno,dos,tres] = arr
 
 Tenes que crear una constante llamada uno, dos y tres que valgan lo que haya en arr en esa posicion
 
 const obj = {x:1,y:2,z:3}
 
+Forma convencional
 const x = obj.x
 const y = obj.y
 const z = obj.z
 
+objeto DESTRUCTURING
 const {x:x,y:y,z:z} = obj
 const {x:miVariable,y:y,z:z} = obj
-const {x,y,z} = obj
+const {x,y,z} = obj ---> OBJECT PROPERTY SHORTHAND
 
 creame una constante llamada x que valga lo que haya en obj en la propiedad x
+{x:x} la de la derecha es la que creamos nosotros equivalente a la forma convencional y puede tener cualquier nombre y la de la izquierda es la que ya existe la que esta dentro del objeto.
 
 OBJECT PROPERTY SHORTHAND
 
@@ -113,3 +123,72 @@ const persona = {
 }
 
 const persona = { nombre }
+----------------------------------------------------------
+
+CLASE 05 
+
+Repaso de funciones flecha 
+
+function foo () {
+    return "hola mundo" 
+}
+
+es lo mismo que 
+
+const foo = () => {
+    return "hola mundo" 
+}
+
+foo es el nombre de la variable donde esta declarada la funcion. 
+
+Podemos sacar las llaves de la funcion si solo si tenemos una sola expresion dentro de la funcion o una sola linea. 
+
+const foo = () => /*return*/ "hola mundo" --> siempre hay un retorno indirecto, aunque no este escrito 
+
+Con parametros 
+
+const foo = (a) => {
+    a * 2
+}
+
+const foo = a => a * 2
+
+Con objetos 
+
+function foo () {
+    return {saludo: "Hola mundo"}
+}
+
+const foo = () => ({saludo: "Hola mundo"}) --> retornar un bojeto 
+const foo = ({a}) => a * 2 ----> en caso de que {a} sea un objeto 
+
+COMPONENTES : 
+
+1) Siempre son funciones
+2) Siempre retornan algo
+3) Siempre arrancan en mayuscula
+4) Siempre retornan una sola cosa
+5) Siempre pueden recibir props
+6) Los props son de SOLO LECTURA
+7) Los componentes pueden tener estado (State): son variable internas de un componente las cuales pueden mantener su valor a traves del tiempo a pesar de la re-ejecucion del mismo componente.
+8) Los componentes tienen un ciclo de vida separado en tres categorias: 
+    - Mounting: Cuando el componente se monta en el DOM
+    - Updating: Cuando el componente se actualiza
+    - Unmounting: Cuando el componente se desmonta del DOM
+
+
+
+HOOKS (ganchos): SOn funciones que se le permiten al componente tener funcionalidad que noes parte de su comportamiento natural. Si o si se ejecutan adentro del componente y no se pueden ejecutar fuera de el. No pueden estar adentro de condicionales, loops, etc. 
+    
+    - useState: Permite crear una variable de estado en el componente, puede o no llevar un parametro y su resultado es siempre un array con dos cosas dentro. La primera es el valor del estado y la segunda una funcion para modificar ese estado. LOS ESTADOS SOLO PUEDEN CAMBIAR EJECUTANDO LA FUNCION QUE VIENE EN EL HOOK
+    - useEffect: 
+    - useContext: 
+
+DESAFIO 05
+1 - Crear un componente ItemCount.js
+2 - Adentro del componente hay un texto y tres botones : Incrementar, Decrementar y agregar al carrito
+3 - Adentro del componente tambien hay un estado que controla un contador
+4 - El componente recibe 3 props : stock(que es un numero) , initial(que es un numero) y onAdd(que es una funcion)
+5 - El componente tiene una funcion que se ejecuta cuando se hace click en el boton de + y aumenta el contador si y solo si no se excede el stock
+6 - El componente tiene una funcion que se ejecuta cuando se hace click en el boton de - y disminuye el contador si y solo si no se llega a 1
+7 - Cuando se haga click en agregar se ejecuta la funcion onAdd y le pasa como parametro el valor del contador si no se excede el stock

@@ -1,7 +1,8 @@
-const Main = () => {
+const Main = ( ) => {
+
     return (
         <main>
-            <h2>Bienvenidos</h2>
+            <h3>Conoce todos nuestros estilos de cerveza</h3>
         </main>
     )
 }
