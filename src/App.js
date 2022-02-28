@@ -6,10 +6,10 @@ import Footer from "./components/Footer"
 const App = () => {
     return (
         <>
-        <NavBar/>
-        <ItemListContainer nombre="Santiago"/>
-        <Main/> 
-        <Footer/>
+            <NavBar/>
+            <ItemListContainer nombre="Santiago"/>
+            <Main/>
+            <Footer/>
         </>
     )
 }
