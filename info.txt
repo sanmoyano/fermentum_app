@@ -25,14 +25,8 @@ const App = () => {}
 En JSX va ser 
     App () === <App/>
 
-COMPONENTES :
-1) Siempre son funciones
-2) Siempre retornan algo
-3) Siempre la primera en mayuscula
-4) Siempre retornan una sola cosa, puede ser una sola cosa con varias cosas adentro. 
+<===== FRAGMENT =====> 
 
-
-FRAGMENT : 
 Utilizar una etiqueta invisible en el dom para cargar los elementos <fragment> o <> ejemplo :
     const App = () => {
         return (
@@ -48,7 +42,7 @@ rafce => atajo para crear el componente de React
 
 CLASE 04 
 
-COMPONENTES : 
+<===== COMPONENTES =====>
 
 1) Siempre son funciones
 2) Siempre retornan algo
@@ -56,13 +50,27 @@ COMPONENTES :
 4) Siempre retornan una sola cosa
 5) Siempre pueden recibir props
 6) Los props son de SOLO LECTURA
+7) Los componentes pueden tener estado (State): son variable internas de un componente las cuales pueden mantener su valor a traves del tiempo a pesar de la re-ejecucion del mismo componente.
+8) Los componentes tienen un ciclo de vida separado en tres categorias: 
+    - Mounting: Cuando el componente se monta en el DOM
+    - Updating: Cuando el componente se actualiza
+    - Unmounting: Cuando el componente se desmonta del DOM
+9) Los componentes vuelven a renderizar (por el usuario o por otra cosa=) su contenido cuando: 
+    - Se actualiza el estado
+    - Se recibe un nuevo prop 
+    - Su padre se renderiza de nuevo
+    - Cuando cambia el contexto 
 
-COMPONENTES PRESENENTACIONALES : Son componentes que sirven mas que nada para mostrar algo en pantalla, por lo general no buscan la info en el exterior sino que la reciben como props
+
+CONTAINER VS PRESENENTACIONALES: 
+Todos los CONTAINER llevan el nombre CONTAINER por ejemplo ItemListContainer, como en el programa. 
+
+COMPONENTES PRESENENTACIONALES : Son componentes que sirven mas que nada para mostrar algo en pantalla, por lo general no buscan la info en el exterior sino que la reciben como props.
 
 COMPONENTES CONTAINER : Son componentes que necesitan de una API externa o la generan/leen de algun lugar para funcionar
 
-
-VANILLA JS
+<===== FUNCIONES =====>
+VANILLA JS 
 
 function foo(nombre,edad){ ---> uno le tiene que cargar la cantidad de parametros que quiere recibir 
     nombre = "Otro Nombre"
@@ -85,7 +93,7 @@ function Foo(props){
     console.log(nombre)
 }
 
-DESTRUCTURING
+<===== DESTRUCTURING =====>
 
 const arr = [1,2,3]
 
@@ -127,7 +135,7 @@ const persona = { nombre }
 
 CLASE 05 
 
-Repaso de funciones flecha 
+/*==== Repaso de funciones flecha ====*/
 
 function foo () {
     return "hola mundo" 
@@ -162,21 +170,7 @@ function foo () {
 const foo = () => ({saludo: "Hola mundo"}) --> retornar un bojeto 
 const foo = ({a}) => a * 2 ----> en caso de que {a} sea un objeto 
 
-COMPONENTES : 
-
-1) Siempre son funciones
-2) Siempre retornan algo
-3) Siempre arrancan en mayuscula
-4) Siempre retornan una sola cosa
-5) Siempre pueden recibir props
-6) Los props son de SOLO LECTURA
-7) Los componentes pueden tener estado (State): son variable internas de un componente las cuales pueden mantener su valor a traves del tiempo a pesar de la re-ejecucion del mismo componente.
-8) Los componentes tienen un ciclo de vida separado en tres categorias: 
-    - Mounting: Cuando el componente se monta en el DOM
-    - Updating: Cuando el componente se actualiza
-    - Unmounting: Cuando el componente se desmonta del DOM
-
-
+<===== HOOKS =====> 
 
 HOOKS (ganchos): SOn funciones que se le permiten al componente tener funcionalidad que noes parte de su comportamiento natural. Si o si se ejecutan adentro del componente y no se pueden ejecutar fuera de el. No pueden estar adentro de condicionales, loops, etc. 
     
@@ -185,8 +179,8 @@ HOOKS (ganchos): SOn funciones que se le permiten al componente tener funcionali
     - useContext: 
 
     otros HOOKS
-    - useReducer
-    - useRef
+    - useReducer: para situaciones de estado mas complejos 
+    - useRef: se usa en conjunto con el DOM
     - useCallback
     - useMemo
     
@@ -199,3 +193,84 @@ DESAFIO 05
 5 - El componente tiene una funcion que se ejecuta cuando se hace click en el boton de + y aumenta el contador si y solo si no se excede el stock
 6 - El componente tiene una funcion que se ejecuta cuando se hace click en el boton de - y disminuye el contador si y solo si no se llega a 1
 7 - Cuando se haga click en agregar se ejecuta la funcion onAdd y le pasa como parametro el valor del contador si no se excede el stock
+
+
+----------------------------------------------------
+CLASE 06
+
+class App extendes React.Component { todo esto es viejo ya se dejo de usar.
+    constructor (){}
+
+    render (){}
+
+    ComponentDidMount(){}
+
+    ComponentDidUpdate(){}
+
+    ComponentWillUnmount() {}
+
+    ShouldComponentUpdate(){}
+}
+
+import ItemCount from "./ItemCount"
+import ItemList from "./ItemList"
+import Item from "./Item"
+
+import { useState } from "react"
+import { useEffect } from "react"
+
+let productosIniciales = []
+
+const ItemListContainer = () => {
+    
+    
+    const [loading, setLoading] = useState(true)
+    const [productos, setProductos] = useState ([])
+
+    //useEffect(function, [array]) => void
+    //Este useEffect se va ejecutar en el primer render y despues de cada render. Los efectos pasan despues del render
+    useEffect (() => { 
+        console.log("Ejecutando useEffect")
+        //Aca quiero pedir los productos
+        setTimeout (() => {
+            setProductos(productosIniciales)
+        }, 5000)
+    }, []) // se agrega el array de dependencia vacio para que solo se ejecute una sola vez. O se pueden agregar estados del mismo u otros componentes dentro del array.
+    
+    return (
+        <div className="greeting__content">
+            <h2>Bienvenido</h2>
+            <button onClick={() => setLoading(!loading)}>toggle</button>
+        </div>
+    )
+}
+/**
+ * 
+ * 1- Arranca el componente la primera vez (mount)
+ * 2- Se hace el primer render
+ * 3- Conseguir la info
+ * 4- Vuelvo a renderizar el componente 
+ * 
+ * 
+ */
+
+
+Promesa : Objecto que representa una operación asincrona que notifica cuando termina bien o mal.
+
+new Promise((res,rej)=>{
+
+})
+
+$.ajax().then().catch()
+
+fetch().then().catch()
+
+algunaFuncion().then().catch()
+------------------------------------------------------------
+
+CLASE 07 
+
+
+
+
+
