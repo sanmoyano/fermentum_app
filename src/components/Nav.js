@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom"
 
 const Nav = () => {
     return (
         <nav className="layout__nav">
             <ul>
-                <li> <a href="" className="nav__link">Inicio</a></li>
-                <li> <a href="" className="nav__link">Cervezas</a></li>
-                <li> <a href="" className="nav__link">Contacto</a></li>
-                <li> <a href="" className="nav__link">Tienda</a></li>
+                <li> <Link to="/" className="nav__link">Inicio</Link></li>
+                <li> <Link to="/Cervezas" className="nav__link">Cervezas</Link></li>
+                <li> <Link to="/Contacto" className="nav__link">Contacto</Link></li>
+                <li> <Link to="/Accesorios" className="nav__link">Accesorios</Link></li>
             </ul>
         </nav>
     )

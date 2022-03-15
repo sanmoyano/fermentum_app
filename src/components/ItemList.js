@@ -1,11 +1,11 @@
 import Item from "./Item"
 
-const ItemList = ({ items }) => {
+const ItemList = ({ estilos }) => {
     return (
         <section className="item__list">
-            {items.map(estilo => {
+            {estilos.map(estilo => {
                 return (
-                    <Item key={estilo.id} estilo={estilo}/>
+                    <Item key={estilo.idCategoria} estilos={estilo}/>
                 )
             })}
             

@@ -154,6 +154,7 @@ footer {
 	display: flex;
 	gap: 1rem;
 	flex-wrap: wrap;
+	padding: 1rem;
 }
 
 .cards__estilos {
@@ -164,10 +165,10 @@ footer {
 	align-items: center;
 	flex-direction: column;
 	justify-content: space-between;
-	border-radius: 10%;
+	border-radius: 3px;
 	.cards__estilos--img {
 		img {
-			border-radius: 10%;
+			border-radius: 3px;
 			width: 200px;
 		}
 	}
