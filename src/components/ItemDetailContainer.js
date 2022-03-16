@@ -1,5 +1,4 @@
 import ItemDetail from "./ItemDetail"
-
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -9,13 +8,9 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState ({})
     const [loading, setLoading] = useState (true)
     const {idCategoria} = useParams()
-    // const param = useParams()
-    // const id = param.idCategoria
-    // console.log(id)
-
 
     useEffect(() => {
-        fetch(`./items.json/estilos${idCategoria}`)
+        fetch(`./items.json${idCategoria}`)
         .then((response) => {
             return response.json()
         })
@@ -28,7 +23,7 @@ const ItemDetailContainer = () => {
         .finally(() => {
             setLoading(false)
         })
-    })
+    }, []) 
 
     if(loading) {
         return <h1>Cargando...</h1>

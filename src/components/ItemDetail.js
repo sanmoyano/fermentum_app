@@ -1,6 +1,7 @@
 
 
 const ItemDetail = ({ item }) => {
+    console.log(item)
     return (
         <article>
             <img src={item.img} alt={item.nombre} />
