@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
             setItem(resultado)
         })
         .catch(() => {
-            toast.error("Error al cargar los productos en el fetch")
+            toast.error("Error al cargar los productos desde el fetch")
         })
         .finally(() => {
             setLoading(false)
