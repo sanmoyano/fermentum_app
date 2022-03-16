@@ -9,10 +9,13 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState ({})
     const [loading, setLoading] = useState (true)
     const {idCategoria} = useParams()
+    // const param = useParams()
+    // const id = param.idCategoria
+    // console.log(id)
 
 
     useEffect(() => {
-        fetch(`./items.json/${idCategoria}`)
+        fetch(`./items.json/estilos${idCategoria}`)
         .then((response) => {
             return response.json()
         })
