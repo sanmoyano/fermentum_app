@@ -8,18 +8,22 @@ import { toast } from "react-toastify"
 const ItemDetailContainer = () => {
     const [item, setItem] = useState ({})
     const [loading, setLoading] = useState (true)
-    const {idDetalle} = useParams()
+    const {idCategoria} = useParams()
+    // const parametros = useParams()
+    // console.log(parametros)
+    // const id = parametros.idCategoria 
+
 
     useEffect(() => {
-        fetch(`./items.json${idDetalle}`)
+        fetch(`./items.json/${idCategoria}`)
         .then((response) => {
             return response.json()
         })
-        .then((resp) => {
-            console.log(resp)
+        .then((resultado) => {
+            console.log(resultado)
         })
         .catch(() => {
-            toast.error("Error al cargar los productos")
+            toast.error("Error al cargar los productos en el fetch")
         })
         .finally(() => {
             setLoading(false)

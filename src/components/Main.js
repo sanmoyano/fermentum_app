@@ -14,7 +14,7 @@ const Main = () => {
             <Routes>
                 <Route path="/" element={<ItemListContainer />}></Route>
                 <Route path="/carrito" element={<Carrito />}></Route>
-                <Route path="/estilos/:idDetalle" element={<ItemDetailContainer />}></Route>
+                <Route path="/estilos/:idCategoria" element={<ItemDetailContainer />}></Route>
                 <Route path="/cervezas" element={<ItemListContainer />}></Route>
                 <Route path="/contacto" element={<Contacto />}></Route>
                 <Route path="/accesorios" element={<Accesorios />}></Route>

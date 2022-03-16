@@ -31,7 +31,7 @@ const ItemListContainer = () => {
     if(loading) {
         return <h1>Cargando...</h1>
     } else {
-        return <ItemList estilos={items} />
+        return<ItemList items={items} />
     }
 }
 
