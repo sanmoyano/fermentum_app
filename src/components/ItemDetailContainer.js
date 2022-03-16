@@ -9,9 +9,6 @@ const ItemDetailContainer = () => {
     const [item, setItem] = useState ({})
     const [loading, setLoading] = useState (true)
     const {idCategoria} = useParams()
-    // const parametros = useParams()
-    // console.log(parametros)
-    // const id = parametros.idCategoria 
 
 
     useEffect(() => {
@@ -20,7 +17,7 @@ const ItemDetailContainer = () => {
             return response.json()
         })
         .then((resultado) => {
-            console.log(resultado)
+            setItem(resultado)
         })
         .catch(() => {
             toast.error("Error al cargar los productos en el fetch")

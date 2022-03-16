@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
 
-const Item = ({ items }) => {
+const Item = ({ item }) => {
     return (
         <article className="cards__estilos">
             <div className="cards__estilos--img">
-                <img src={items.img} alt={items.nombre} />
+                <img src={item.img} alt={item.nombre} />
             </div>
             <div className="cards__estilos--text">
-                <h2>{items.nombre}</h2>
-                <Link to={`/estilos/${items.idCategoria}`}> Ver detalle</Link>
+                <h2>{item.nombre}</h2>
+                <Link to={`/estilo/${item.idCategoria}`}> Ver detalle</Link>
             </div>
         </article>
     )

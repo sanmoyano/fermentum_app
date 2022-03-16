@@ -13,9 +13,9 @@ const Main = () => {
             <h3>Conoce todos nuestros estilos de cerveza</h3>
             <Routes>
                 <Route path="/" element={<ItemListContainer />}></Route>
+                <Route path="/cervezas/:id" element={<ItemListContainer />}></Route>
+                <Route path="/estilo/:idCategoria" element={<ItemDetailContainer />}></Route>
                 <Route path="/carrito" element={<Carrito />}></Route>
-                <Route path="/estilos/:idCategoria" element={<ItemDetailContainer />}></Route>
-                <Route path="/cervezas" element={<ItemListContainer />}></Route>
                 <Route path="/contacto" element={<Contacto />}></Route>
                 <Route path="/accesorios" element={<Accesorios />}></Route>
             </Routes>
