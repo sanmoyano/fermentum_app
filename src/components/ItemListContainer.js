@@ -2,6 +2,7 @@ import ItemList from "./ItemList"
 import { useState, useEffect } from "react"
 import { toast } from "react-toastify"
 import { useParams } from "react-router-dom"
+import itemsIniciales from "./estilosIniciales.js"
 
 
 
@@ -11,21 +12,17 @@ const ItemListContainer = () => {
     const [items, setItems] = useState([])
     const {idCategoria} = useParams()
     
+    const getItems = () => {
+        return new Promise ((resolve, reject) => {
+            setTimeout(() => {resolve(itemsIniciales)}, 1000)
+        })
+    }
+
     useEffect(() => {
-        
-        fetch('/items.json')
-            .then((response) => {
-                return response.json()
-            })
-            .then((resultado) => {
-                setItems(resultado)
-            })
-            .catch(() => {
-                toast.error("Error al cargar los productos")
-            })
-            .finally(()=> {
-                setLoading(false)
-            })
+        getItems()
+        .then(promesaRespuesta => setItems(promesaRespuesta))
+        .catch(() => toast.error("Error cargando catalogo de productos"))
+        .finally(() => {setLoading(false)})
     }, [idCategoria])
 
     if(loading) {
