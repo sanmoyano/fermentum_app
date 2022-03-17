@@ -2,7 +2,8 @@ import ItemDetail from "./ItemDetail"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
-// import misItems from "./items.json"
+// import itemsIniciales from "../items.json"
+
 
 
 const ItemDetailContainer = () => {

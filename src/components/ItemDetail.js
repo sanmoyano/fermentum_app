@@ -3,6 +3,7 @@ import {useState} from 'react'
 
 const ItemDetail = ({ item }) => {
     const [seleccionado,setSeleccionado] = useState(false)
+    
     const onAdd = (cantidadSeleccionada) => {
         console.log('Añadir al carrito',cantidadSeleccionada)
         setSeleccionado(cantidadSeleccionada)
