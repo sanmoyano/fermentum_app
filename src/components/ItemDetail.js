@@ -1,7 +1,13 @@
-
+import ItemCount from "./ItemCount"
+import {useState} from 'react'
 
 const ItemDetail = ({ item }) => {
-    console.log(item)
+    const [seleccionado,setSeleccionado] = useState(false)
+    const onAdd = (cantidadSeleccionada) => {
+        console.log('Añadir al carrito',cantidadSeleccionada)
+        setSeleccionado(cantidadSeleccionada)
+    }
+
     return (
         <article>
             <img src={item.img} alt={item.nombre} />
@@ -10,6 +16,7 @@ const ItemDetail = ({ item }) => {
                 <p>{item.alcohol} %ALCH</p>
                 <h2>${item.precio}/L</h2>
             </div>
+            <ItemCount stock={10} initial={1} onAdd={onAdd}/>
         </article>
     )
 }
