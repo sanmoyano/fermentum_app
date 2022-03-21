@@ -20,7 +20,7 @@ const ItemDetail = ({ item }) => {
                 <h2>${item.precio}/L</h2>
                 <Link to="/carrito"></Link>
                 <ItemCount stock={10} initial={1} onAdd={onAdd}/>
-                <button>Terminar micompra</button>
+                <Link to="/carrito">Ir al carrito</Link>
             </div>
         </article>
     )
