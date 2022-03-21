@@ -151,10 +151,10 @@ footer {
 }
 
 .item__list {
-	display: flex;
-	gap: 1rem;
-	flex-wrap: wrap;
-	padding: 1rem;
+	display: grid;
+	gap: .5rem;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	place-items: center;
 }
 
 .cards__estilos {

@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-const ItemCount = (props) => {
-    const { stock, initial, onAdd } = props
+const ItemCount = ({initial, stock, onAdd}) => {
+    // const { stock, initial, onAdd } = props
     const [inicial, setInicial] = useState(initial)
 
     const clickSumar = () => {
@@ -15,7 +15,7 @@ const ItemCount = (props) => {
     }
 
     const agregarCarrito = () => {
-        onAdd(console.log(`items agregados: ${inicial}`))
+        onAdd(inicial)
     }
 
     return (

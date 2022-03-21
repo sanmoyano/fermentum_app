@@ -172,7 +172,7 @@ const foo = ({a}) => a * 2 ----> en caso de que {a} sea un objeto
 
 <===== HOOKS =====> 
 
-HOOKS (ganchos): SOn funciones que se le permiten al componente tener funcionalidad que noes parte de su comportamiento natural. Si o si se ejecutan adentro del componente y no se pueden ejecutar fuera de el. No pueden estar adentro de condicionales, loops, etc. 
+HOOKS (ganchos): Son funciones que se le permiten al componente tener funcionalidad que noes parte de su comportamiento natural. Si o si se ejecutan adentro del componente y no se pueden ejecutar fuera de el. No pueden estar adentro de condicionales, loops, etc. 
     
     - useState: Permite crear una variable de estado en el componente, puede o no llevar un parametro y su resultado es siempre un array con dos cosas dentro. La primera es el valor del estado y la segunda una funcion para modificar ese estado. LOS ESTADOS SOLO PUEDEN CAMBIAR EJECUTANDO LA FUNCION QUE VIENE EN EL HOOK.
     - useEffect: 
@@ -286,6 +286,8 @@ Web Services : SOAP, REST, GraphQL, etc.
 ------------------------------------------------------------
 
 CLASE 07 
+Consumiendo APIs
+COMPONENTES CONTAINER son los componentes que neceisatn de una API externa o la generan/leen de algun lugar para funcionar
 
 -----------------------------------------------------------
 
@@ -298,11 +300,46 @@ StaticRouter : Router que se usa en el servidor (SSR)
 NativeRouter : Route que se usa en mobile
 
 
+IMPLEMENTACION DE CONTEXTO : 
+1) Crear el contexto con createContext
+2) Sacar el Provider de adentro del contexto
+3) Export de contexto y Provider
+
+LEER EL CONTEXTO
+4) Vas al componente donde queres leer algo del contexto
+5) Traes el hook useContext
+6) Traes el objeto contexto
+7) useas el hook como useContext(contexto)
+
+PATRON PROVIDER / CAMBIAR EL CONTEXTO
+8) Crear un componente nuevo que va a usar el contexto
+9) En el retorno usas el Provider con su prop value (que setea el valor del contexto)
+
+--------------------------------------
+CLASE 09 
+Eventos 
+
+Para que un componente hijo le pase informacion aun componente padre. Usando estados y pasando la funcion de cambio de estados desde el mas alto al mas bajo. 
+
+- Padre le pasa una funcion al Hijo como props
+- El componente hijo recibe esa funcion y decide cuando ejecutarla. 
+- Cuando el hijo termine de ejecutar la funcion, indirectamente se ejecuta en el padre, por que fue creada ahi. Es un callback
+- Como el componente hijo la esta ejecutando, todas las variables del componente hijo estan disponibles. Entonces puedo pasar algo desde el hijo hacia el Padre. 
+
+UNA FUNCION QUE CARECE DE RETORNO, DEVUELVE UNDEFINED
+Como escribrir la funcion para ejecutar un evento en react
+
+const hacerClick = () => {
+    console.log("Click")
+}
+
+<button onClick = {hacerClick}> click </button> 
 
 
 
+useParams ===> usar el mismo nombre que coloco en la Route para leer el parametro que esta despues de los dos puntos 
 
+ <Route path="/estilo/:idCategoria" element={<ItemDetailContainer />}></Route>
+const { idCategoria } = useParams()
 
-
-
-
+ 
