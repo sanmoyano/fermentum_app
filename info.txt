@@ -300,20 +300,7 @@ StaticRouter : Router que se usa en el servidor (SSR)
 NativeRouter : Route que se usa en mobile
 
 
-IMPLEMENTACION DE CONTEXTO : 
-1) Crear el contexto con createContext
-2) Sacar el Provider de adentro del contexto
-3) Export de contexto y Provider
 
-LEER EL CONTEXTO
-4) Vas al componente donde queres leer algo del contexto
-5) Traes el hook useContext
-6) Traes el objeto contexto
-7) useas el hook como useContext(contexto)
-
-PATRON PROVIDER / CAMBIAR EL CONTEXTO
-8) Crear un componente nuevo que va a usar el contexto
-9) En el retorno usas el Provider con su prop value (que setea el valor del contexto)
 
 --------------------------------------
 CLASE 09 
@@ -342,4 +329,34 @@ useParams ===> usar el mismo nombre que coloco en la Route para leer el parametr
  <Route path="/estilo/:idCategoria" element={<ItemDetailContainer />}></Route>
 const { idCategoria } = useParams()
 
+ --------------------------
+ CLASE 10 
+ useContext - Context APIs
+ Context API: Implementacion del patron de publicacion/suscripcion de JS. pub/sub. Se trata de obtener un lugar de almacenamiento "global", una especie de variable. Creamos un lugar de almacenamiento llamdo CONTEXTO, funciona como un estado mas. Cualquier componente se puede suscribir a cambios en el contexto. Podemos publicarle cosas desde cualquier componente, publicar cambios. El contexto se crea una sola vez. 
+
+ Hay que crear un componente que se dedique unicamente a la logica del contexto
+
+ Un contexto por cada funcionalidad. Por cada cosa que tenga su propia logica. 
+
  
+IMPLEMENTACION DE CONTEXTO : 
+1) Crear el contexto con createContext (crear el lugar de almacenamiento en cualquier archivo importando desde React) Cuando creamos el contexto nos devuelve un objeto createContext() = {objeto} y nos da dos componentes que necesitamos. Provider y Consumer. No vamos a usar Consumer. 
+2) Sacar el Provider de adentro del contexto
+3) Export de contexto y Provider
+
+LEER EL CONTEXTO
+4) Vas al componente donde queres leer algo del contexto que este mucho mas por abajo de donde se creo el contexto. 
+5) Traes el hook useContext
+6) Traes el objeto contexto
+7) useas el hook como useContext(contexto)
+
+PATRON PROVIDER / CAMBIAR EL CONTEXTO
+8) Crear un componente nuevo que va a usar el contexto. El Provider se encarga de establecer el valor del contexto con value = {}
+9) En el retorno usas el Provider con su prop value (que setea el valor del contexto)
+
+FUNCIONALIDAD DEL CARRITO 
+- Agregar un objeto al carrito
+- Eliminar un objeto del carrito
+- Vaciar el carrito
+- Obtener la cantidad de items en el carrito 
+- Calcular precio total de compra 
