@@ -5,13 +5,15 @@ import { Link } from 'react-router-dom'
 import { contexto } from './CartContext'
 
 const ItemDetail = ({ item }) => {
-    const [seleccionado, setSeleccionado] = useState(false)
 
     const { addItem } = useContext(contexto)
+    const [seleccionado, setSeleccionado] = useState(false)
+
 
     const onAdd = (cantidadSeleccionada) => {
-        console.log('Añadir al carrito',item, cantidadSeleccionada)
+        console.log('Añadir al carrito',item.nombre, cantidadSeleccionada)
         setSeleccionado(cantidadSeleccionada)
+    
         addItem(item, cantidadSeleccionada)
     }
 

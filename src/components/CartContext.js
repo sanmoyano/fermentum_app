@@ -13,8 +13,6 @@ const MiProvider = ({ children }) => {
         const itemAlCarrito = { ...item, cant }
         copiaCarrito.push(itemAlCarrito)
         setCarrito(copiaCarrito)
-
-        
     }
 
     const removeItem = (itemId) => {
