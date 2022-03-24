@@ -13,7 +13,7 @@ const NavBar = () => {
                 <h1>Fermentum Faber</h1>
             </Link>
             <Nav />
-            <Link to="/carrito">
+            <Link className="carrito__widget" to="/carrito">
                 <CartWidget />
                 {calCantidad ()}
             </Link>

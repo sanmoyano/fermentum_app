@@ -8,7 +8,7 @@ const Carrito = () => {
 
     if (carrito.length === 0) {
         return (
-            <div className="carrito">
+            <div className="carrito__vacio">
                 <h3>Carrito vacío</h3>
                 <Link to="/">Volver a inicio</Link>
             </div>
