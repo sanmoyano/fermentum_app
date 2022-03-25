@@ -8,14 +8,14 @@ import MiProvider from "./components/CartContext"
 
 const App = () => {
     return (
-        <MiProvider>
-            <BrowserRouter>
+        <BrowserRouter>
+            <MiProvider>
                 <NavBar />
                 <Main />
-                <Footer />
-                <ToastContainer />
-            </BrowserRouter>
-        </MiProvider>
+            </MiProvider>
+            <Footer />
+            <ToastContainer />
+        </BrowserRouter>
     )
 }
 

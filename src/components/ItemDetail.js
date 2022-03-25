@@ -6,17 +6,13 @@ import { contexto } from './CartContext'
 
 const ItemDetail = ({ item }) => {
 
+    const [seleccionado, setSeleccionado] = useState(0)
     const { addItem } = useContext(contexto)
-    const [seleccionado, setSeleccionado] = useState(false)
-
 
     const onAdd = (cantidadSeleccionada) => {
-        console.log('Añadir al carrito', item.nombre, cantidadSeleccionada)
         setSeleccionado(cantidadSeleccionada)
-
         addItem(item, cantidadSeleccionada)
     }
-
 
     return (
         <article className="card__detail">
@@ -26,12 +22,14 @@ const ItemDetail = ({ item }) => {
                 <p>{item.ibu} IBU</p>
                 <p>{item.alcohol} %ALCH</p>
                 <h2>${item.precio}/L</h2>
-                <Link to="/carrito"></Link>
-                <ItemCount stock={10} initial={1} onAdd={onAdd} />
-                <div className="card__redirect">
-                    <Link to="/carrito">Ir al carrito</Link>
-                    <Link to="/">Seguir comprando</Link>
-                </div>
+                {seleccionado === 0 ? (
+                    <ItemCount stock={10} initial={0} onAdd={onAdd} />
+                ) : (
+                    <div className="card__redirect">
+                        <button className="btn__terminar"><Link to="/carrito">Terminar compra</Link></button>
+                        <Link to="/">Seguir comprando</Link>
+                    </div>
+                )}
             </div>
         </article>
     )

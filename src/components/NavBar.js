@@ -6,7 +6,7 @@ import { useContext } from "react"
 
 
 const NavBar = () => {
-    const { calCantidad } = useContext(contexto)
+    const { calCantidad, carrito } = useContext(contexto)
     return (
         <header id="header__layout">
             <Link to="/">
@@ -15,7 +15,7 @@ const NavBar = () => {
             <Nav />
             <Link className="carrito__widget" to="/carrito">
                 <CartWidget />
-                {calCantidad ()}
+                {carrito.length > 0 && <span>{calCantidad()}</span>}
             </Link>
         </header>
     )

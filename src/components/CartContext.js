@@ -13,19 +13,21 @@ const MiProvider = ({ children }) => {
             const itemEnCarrito = copiaCarrito.find(i => i.idCategoria === item.idCategoria)
             itemEnCarrito.cant += cant
             setCarrito(copiaCarrito)
+
+            //OTRA OPCION
+            // isInCart(item.idCategoria)
+            //     ? calCantidad (item, cant)
+            //     : setCarrito ([...carrito, {...item, cant}])
         } else {
             copiaCarrito.push(itemAlCarrito)
             setCarrito(copiaCarrito)
         }
     }
 
-    const removeItem = (itemId) => {
-        const itemsFiltrados = carrito.filter(item => item.idCategoria !== itemId)
-        setCarrito(itemsFiltrados)
-    }
-
-    const clearCart = () => {
-        setCarrito([])
+    const calCantidad = () => {
+        let cant = 0
+        carrito.forEach(item => cant += item.cant)
+        return cant
     }
 
     const isInCart = (id) => {
@@ -33,11 +35,13 @@ const MiProvider = ({ children }) => {
             return item.idCategoria === id
         })
     }
+    const removeItem = (itemId) => {
+        const itemsFiltrados = carrito.filter(item => item.idCategoria !== itemId)
+        setCarrito(itemsFiltrados)
+    }
 
-    const calCantidad = () => {
-        let cant = 0
-        carrito.forEach(item => cant += item.cant)
-        return cant
+    const clearCart = () => {
+        setCarrito([])
     }
 
     const calTotal = () => {
@@ -49,10 +53,10 @@ const MiProvider = ({ children }) => {
     const valorDelContexto = {
         carrito,
         addItem,
+        calCantidad,
+        isInCart,
         removeItem,
         clearCart,
-        isInCart,
-        calCantidad,
         calTotal
     }
 
