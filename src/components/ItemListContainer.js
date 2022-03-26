@@ -4,7 +4,7 @@ import { toast } from "react-toastify"
 import { useParams } from "react-router-dom"
 // import itemsIniciales from "./estilosIniciales.js"
 import { db } from "./firebase"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, query } from "firebase/firestore"
 
 
 
@@ -14,25 +14,23 @@ const ItemListContainer = () => {
     const [items, setItems] = useState([])
     const { idCategoria } = useParams()
 
-    // const getItems = () => {
-    //     return new Promise ((resolve, reject) => {
-    //         setTimeout(() => {resolve(itemsIniciales)}, 1000)
-    //     })
-    // }
-
     useEffect(() => {
 
         const itemCollection = collection(db, "items")
         const consulta = getDocs(itemCollection)
         consulta
-            .then(promesaRespuesta => setItems(promesaRespuesta))
-            .catch(() => toast.error("Error cargando catalogo de productos"))
-            .finally(() => { setLoading(false) })
-
-        // getItems()
-        // .then(promesaRespuesta => setItems(promesaRespuesta))
-        // .catch(() => toast.error("Error cargando catalogo de productos"))
-        // .finally(() => {setLoading(false)})
+            .then((promesaRespuesta) => {
+                const arrayDeResultado = promesaRespuesta.docs.map((doc) => {
+                    return doc.data()
+                })
+                setItems(arrayDeResultado)
+            })
+            .catch(() => {
+                toast.error("Error cargando catalogo de productos")
+            })
+            .finally(() => { 
+                setLoading(false) 
+            })
     }, [idCategoria])
 
     if (loading) {
