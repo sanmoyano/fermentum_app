@@ -363,9 +363,24 @@ FUNCIONALIDAD DEL CARRITO
 
 AFTER 11
 
-MEMO: Si yo quisiera memorizar un componente que no va cambiar utilizo React.memo(Component). Es un componente que nunca va cambiar. Debo hacer el import de React.memo antes de importar el componente. Con el memo freno el renderizado del componente. No se utiliza todo el tiempo por que utiliza mucha memoria. 
+memo (HoC): Si yo quisiera memorizar un componente que no va cambiar utilizo React.memo(Component). Es un componente que nunca va cambiar. Debo hacer el import de React.memo antes de importar el componente. Con el memo freno el renderizado del componente. No se utiliza todo el tiempo por que utiliza mucha memoria. 
 
 useCallback - Funcion que se ejecuta cuando el componente se monta y cuando el componente se desmonta. Para memorizar funciones que n o cambian. Ejemplo:
     const aumentar = useCallback(() => {
         setCount(count + 1)
     }, [count])
+
+
+CLASE 12
+
+Firebase Database : API de Firebase para crear y administrar bases de dato
+
+El backEnd hace consultas a la base de datos y devuelve una respuesta al frontEnd. 
+Base de datos es un conjunto de datos que se pueden consultar, agregar, modificar, eliminar etc.
+Existen de dos tipos de bases de datos: RELACIONALES / NO RELACIONALES: SQL - MySQL - PostgreSQL / MongoDB - Cassandra - Firestore - etc.
+
+ABML: alta, baja, modificacion, listado
+CRUD: Create, Read, Update, Delete
+
+ABML === CRUD
+
