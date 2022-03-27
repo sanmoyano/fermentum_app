@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import itemsIniciales from "./estilosIniciales.js"
+import { db } from "./firebase"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
 
 

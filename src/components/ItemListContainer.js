@@ -2,7 +2,6 @@ import ItemList from "./ItemList"
 import { useState, useEffect } from "react"
 import { toast } from "react-toastify"
 import { useParams } from "react-router-dom"
-// import itemsIniciales from "./estilosIniciales.js"
 import { db } from "./firebase"
 import { collection, getDocs, query, where } from "firebase/firestore"
 
