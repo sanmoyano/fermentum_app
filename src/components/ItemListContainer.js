@@ -14,22 +14,29 @@ const ItemListContainer = () => {
     const { idCategoria } = useParams()
 
     useEffect(() => {
-
         const itemCollection = collection(db, "items")
         const consulta = getDocs(itemCollection)
-        consulta
-            .then((promesaRespuesta) => {
-                const arrayDeResultado = promesaRespuesta.docs.map((doc) => {
-                    return doc.data()
+
+        if (!idCategoria) {
+            consulta
+                .then((promesaRespuesta) => {
+                    const arrayDeResultado = promesaRespuesta.docs.map((doc) => { return doc.data() })
+                    setItems(arrayDeResultado)
                 })
-                setItems(arrayDeResultado)
-            })
-            .catch(() => {
-                toast.error("Error cargando catalogo de productos")
-            })
-            .finally(() => { 
-                setLoading(false) 
-            })
+                .catch(() => { toast.error("Error cargando catalogo de productos") })
+                .finally(() => { setLoading(false) })
+        } else {
+            const filtro = query(itemCollection, where("categoria", "==", idCategoria))
+            const consulta = getDocs(filtro)
+
+            consulta
+                .then((promesaRespuesta) => {
+                    const arrayDeResultado = promesaRespuesta.docs.map((doc) => { return doc.data() })
+                    setItems(arrayDeResultado)
+                })
+                .catch(() => { toast.error("Error cargando catalogo de productos") })
+                .finally(() => { setLoading(false) })
+        }
     }, [idCategoria])
 
     if (loading) {

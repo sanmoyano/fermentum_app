@@ -8,7 +8,7 @@ const Item = ({ item }) => {
             </div>
             <div className="cards__estilos--text">
                 <h2>{item.nombre}</h2>
-                <Link to={`/estilo/${item.idCategoria}`}> Ver detalle</Link>
+                <Link to={`/item/${item.id}`}> Ver detalle</Link>
             </div>
         </article>
     )

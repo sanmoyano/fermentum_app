@@ -9,8 +9,8 @@ const MiProvider = ({ children }) => {
     const addItem = (item, cant) => {
         const copiaCarrito = [...carrito]
         const itemAlCarrito = { ...item, cant }
-        if(isInCart(item.idCategoria)){
-            const itemEnCarrito = copiaCarrito.find(i => i.idCategoria === item.idCategoria)
+        if(isInCart(item.id)){
+            const itemEnCarrito = copiaCarrito.find(i => i.id === item.id)
             itemEnCarrito.cant += cant
             setCarrito(copiaCarrito)
 
@@ -32,11 +32,11 @@ const MiProvider = ({ children }) => {
 
     const isInCart = (id) => {
         return carrito.some(function(item) {
-            return item.idCategoria === id
+            return item.id === id
         })
     }
     const removeItem = (itemId) => {
-        const itemsFiltrados = carrito.filter(item => item.idCategoria !== itemId)
+        const itemsFiltrados = carrito.filter(item => item.id !== itemId)
         setCarrito(itemsFiltrados)
     }
 
