@@ -13,11 +13,6 @@ const MiProvider = ({ children }) => {
             const itemEnCarrito = copiaCarrito.find(i => i.id === item.id)
             itemEnCarrito.cant += cant
             setCarrito(copiaCarrito)
-
-            //OTRA OPCION
-            // isInCart(item.idCategoria)
-            //     ? calCantidad (item, cant)
-            //     : setCarrito ([...carrito, {...item, cant}])
         } else {
             copiaCarrito.push(itemAlCarrito)
             setCarrito(copiaCarrito)
