@@ -1,7 +1,6 @@
 import { createContext, useState } from "react"
 export const contexto = createContext()
 const { Provider } = contexto
-
 const MiProvider = ({ children }) => {
 
     const [carrito, setCarrito] = useState([])
@@ -9,6 +8,7 @@ const MiProvider = ({ children }) => {
     const addItem = (item, cant) => {
         const copiaCarrito = [...carrito]
         const itemAlCarrito = { ...item, cant }
+
         if(isInCart(item.id)){
             const itemEnCarrito = copiaCarrito.find(i => i.id === item.id)
             itemEnCarrito.cant += cant

@@ -16,34 +16,24 @@ const ItemListContainer = () => {
     useEffect(() => {
         const itemCollection = collection(db, "items")
         const consulta = getDocs(itemCollection)
-
-        if (!idCategoria) {
-            consulta
-                .then((promesaRespuesta) => {
-                    const arrayDeResultado = promesaRespuesta.docs.map((doc) => { return doc.data() })
-                    setItems(arrayDeResultado)
-                })
-                .catch(() => { toast.error("Error cargando catalogo de productos") })
-                .finally(() => { setLoading(false) })
-        } else {
-            const filtro = query(itemCollection, where("categoria", "==", idCategoria))
-            const consulta = getDocs(filtro)
-
-            consulta
-                .then((promesaRespuesta) => {
-                    const arrayDeResultado = promesaRespuesta.docs.map((doc) => { return doc.data() })
-                    setItems(arrayDeResultado)
-                })
-                .catch(() => { toast.error("Error cargando catalogo de productos") })
-                .finally(() => { setLoading(false) })
+        const hacerPerdidoDb = (variableConGetDocs) => {
+            variableConGetDocs
+                .then(promesaRespuesta => setItems(promesaRespuesta.docs.map(doc => doc.data())))
+                .catch(() => toast.error("Error cargando catalogo de productos"))
+                .finally(() => setLoading(false))
         }
-    }, [idCategoria])
+        (!idCategoria) ? (
+            hacerPerdidoDb(consulta)
+        ) : (
+            hacerPerdidoDb(getDocs(query(itemCollection, where("categoria", "==", idCategoria))))
+        )
+}, [idCategoria])
 
-    if (loading) {
-        return <h1>Cargando...</h1>
-    } else {
-        return <ItemList items={items} />
-    }
+if (loading) {
+    return <h1>Cargando...</h1>
+} else {
+    return <ItemList items={items} />
+}
 }
 
 export default ItemListContainer
