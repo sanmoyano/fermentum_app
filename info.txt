@@ -172,7 +172,7 @@ const foo = ({a}) => a * 2 ----> en caso de que {a} sea un objeto
 
 <===== HOOKS =====> 
 
-HOOKS (ganchos): Son funciones que se le permiten al componente tener funcionalidad que noes parte de su comportamiento natural. Si o si se ejecutan adentro del componente y no se pueden ejecutar fuera de el. No pueden estar adentro de condicionales, loops, etc. 
+HOOKS (ganchos): Son funciones que se le permiten al componente tener funcionalidad que no es parte de su comportamiento natural. Si o si se ejecutan adentro del componente y no se pueden ejecutar fuera de el. No pueden estar adentro de condicionales, loops, etc. 
     
     - useState: Permite crear una variable de estado en el componente, puede o no llevar un parametro y su resultado es siempre un array con dos cosas dentro. La primera es el valor del estado y la segunda una funcion para modificar ese estado. LOS ESTADOS SOLO PUEDEN CAMBIAR EJECUTANDO LA FUNCION QUE VIENE EN EL HOOK.
     - useEffect: 

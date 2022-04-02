@@ -18,9 +18,9 @@ const ItemDetailContainer = () => {
         const consulta = getDocs(filtro)
 
         consulta
-                .then((promesaRespuesta) => { setItem(promesaRespuesta.docs[0].data()) })
-                .catch(() => { toast.error("Error cargando catalogo de productos") })
-                .finally(() => { setLoading(false) })
+                .then(promesaRespuesta => setItem(promesaRespuesta.docs[0].data()))
+                .catch(() => toast.error("Error cargando catalogo de productos"))
+                .finally(() => setLoading(false))
     }, [idItem])
 
     if (loading) {
