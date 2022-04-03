@@ -1,13 +1,14 @@
 import { useContext } from "react"
 import { contexto } from "./CartContext"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 import { db } from "./firebase"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 
 
 const Carrito = () => {
 
-    const { carrito, calTotal, clearCart, removeItem } = useContext(contexto)
+    const { carrito, total, clearCart, removeItem } = useContext(contexto)
 
     if (carrito.length === 0) {
         return (
@@ -16,6 +17,30 @@ const Carrito = () => {
                 <Link to="/">Volver a inicio</Link>
             </div>
         )
+    }
+
+    const finalizarCompra = () => {
+        const ordenesDeCompra = {
+            buyer : {
+                nombre : "Juan",
+                apellido : "Perez",
+                email : "juan@gmail.com",
+                telefono : "12345678"
+            },
+            items: carrito,
+            date: serverTimestamp(),
+            total: total
+        }
+
+        const ordenDeCompraCollection = collection(db, "ordenesDeCompra")
+        const ordenDeCompraRef = addDoc(ordenDeCompraCollection, ordenesDeCompra)
+
+        ordenDeCompraRef
+            .then(() => {
+                clearCart()
+                toast.success("Compra realizada con éxito")
+            })
+            .catch(() => toast.error("Error al realizar la compra"))
     }
 
     return (
@@ -32,9 +57,10 @@ const Carrito = () => {
                 </div>
             ))}
             <div className="carrito__total">
-                <h3>TOTAL:${calTotal()}</h3>
+                <h3>TOTAL:${total}</h3>
                 <button onClick={() => clearCart()}>Vaciar carrito</button>
                 <Link to="/">Seguir comprando</Link>
+                <button onClick={finalizarCompra}>Finalizar compra</button>
             </div>
         </>
     )
