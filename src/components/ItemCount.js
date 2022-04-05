@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 const ItemCount = ({initial, stock, onAdd}) => {
-    // const { stock, initial, onAdd } = props
     const [inicial, setInicial] = useState(initial)
 
     const clickSumar = () => {

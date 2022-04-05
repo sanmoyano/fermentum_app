@@ -1,9 +1,12 @@
 import { useContext } from "react"
 import { contexto } from "./CartContext"
 import { Link } from "react-router-dom"
+
 import { toast } from "react-toastify"
+
 import { db } from "./firebase"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"
+
 
 
 const Carrito = () => {
@@ -21,11 +24,11 @@ const Carrito = () => {
 
     const finalizarCompra = () => {
         const ordenesDeCompra = {
-            buyer : {
-                nombre : "Juan",
-                apellido : "Perez",
-                email : "juan@gmail.com",
-                telefono : "12345678"
+            buyer: {
+                nombre: "Juan",
+                apellido: "Perez",
+                email: "juan@gmail.com",
+                telefono: "12345678"
             },
             items: carrito,
             date: serverTimestamp(),
@@ -50,17 +53,24 @@ const Carrito = () => {
                     <img src={item.img} alt={item.nombre} />
                     <div className="carrito__card--text">
                         <h2>{item.nombre}</h2>
-                        <p>Cantidad:{item.cant}</p>
-                        <p>Precio: ${item.precio}</p>
-                        <button onClick={() => removeItem(item.id)}>Eliminar producto</button>
+                        <p className="carrito__resume">{item.resume}</p>
+                        <div className="carrito__count">
+                            <p>Cantidad: {item.cant}</p>
+                            <p>${item.precio}</p>
+                        </div>
+                        <div className="carrito__seguir">
+                            <button onClick={() => removeItem(item.id)}>eliminar</button>
+                            <Link to="/">seguir comprando</Link>
+                        </div>
                     </div>
                 </div>
             ))}
             <div className="carrito__total">
-                <h3>TOTAL:${total}</h3>
-                <button onClick={() => clearCart()}>Vaciar carrito</button>
-                <Link to="/">Seguir comprando</Link>
-                <button onClick={finalizarCompra}>Finalizar compra</button>
+                <div className="carrito__total--edit">
+                    <button onClick={() => clearCart()}>Vaciar carrito</button>
+                    <h2>TOTAL: ${total}</h2>
+                </div>
+                <button className="btn__finalizar" onClick={finalizarCompra}>Finalizar compra</button>
             </div>
         </>
     )

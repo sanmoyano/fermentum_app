@@ -8,7 +8,7 @@ const Main = () => {
     return (
         <main>
             <h2>Bienvenido</h2>
-            <h3>Conoce todos nuestros estilos de cerveza</h3>
+            <h3>Conoce todos nuestros productos</h3>
             <Routes>
                 <Route path="/" element={<ItemListContainer />}></Route>
                 <Route path="/categoria/:idCategoria" element={<ItemListContainer />}></Route>
