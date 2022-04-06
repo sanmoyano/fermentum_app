@@ -18,17 +18,15 @@ const ItemDetail = ({ item }) => {
         <article className="card__detail">
             <img src={item.img} alt={item.nombre} />
             <div className="titulos">
-                <h3>{item.nombre}</h3>
-                {item.description === undefined ? (
-                    <p>{item.resume}</p>
-                ) : (
-                    <p>{item.description}</p>
-                )}
-                <p>{item.ibu} IBU</p>
-                <p>{item.alcohol} %ALCH</p>
-                <h2>${item.precio}/L</h2>
+                <div className="card__content">
+                    <h3>{item.nombre}</h3>
+                    {item.description === undefined ? (<p className="text">{item.resume}</p>) : (<p className="text">{item.description}</p>)}
+                    {item.ibu !== undefined ? (<p>IBU: {item.ibu}</p>) : ("")}
+                    {item.alcohol !== undefined ? (<p>%ALCH: {item.alcohol}</p>) : ("")}
+                    <h2>${item.precio}</h2>
+                </div>
                 {seleccionado === 0 ? (
-                    <ItemCount stock={10} initial={0} onAdd={onAdd} />
+                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
                 ) : (
                     <div className="card__redirect">
                         <Link to="/">Seguir comprando</Link>

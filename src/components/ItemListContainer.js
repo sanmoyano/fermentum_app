@@ -27,13 +27,19 @@ const ItemListContainer = () => {
         ) : (
             hacerPerdidoDb(getDocs(query(itemCollection, where("categoria", "==", idCategoria))))
         )
-}, [idCategoria])
+    }, [idCategoria])
 
-if (loading) {
-    return <h1>Cargando...</h1>
-} else {
-    return <ItemList items={items} />
-}
+    if (loading) {
+        return <h1>Cargando...</h1>
+    } else {
+        return (
+            <>
+                <h2>Bienvenidos</h2>
+                <h3>Conoce todos nuestros productos</h3>
+                <ItemList items={items} />
+            </>
+        )
+    }
 }
 
 export default ItemListContainer

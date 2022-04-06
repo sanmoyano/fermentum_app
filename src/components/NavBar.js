@@ -7,6 +7,7 @@ import { useContext } from "react"
 
 const NavBar = () => {
     const { cantidad, carrito } = useContext(contexto)
+
     return (
         <header id="header__layout">
             <Link to="/">
