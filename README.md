@@ -9,7 +9,7 @@
         <a href="https://github.com/sanmoyano/fermentum_app.git"><strong>Docuementacion »</strong></a>
         <br />
         <br />
-        <a href="https://github.com/github_username/repo_name">Ver Web App »</a>
+        <a href="https://fermentum-app.firebaseapp.com/">Ver Web App »</a>
     </p>
 </div>
 
@@ -30,6 +30,7 @@ El proyecto se trata del desarrollo de una aplicación web que permite la gesti�
 ### Realizado en:
 
 - [React.js](https://reactjs.org/)
+- El sitio se encuentra deployado en [Firebase](https://firebase.google.com/)
 
 ## Scripts
 
