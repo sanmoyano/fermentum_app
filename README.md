@@ -25,7 +25,7 @@ Conocé más de nosotros en nuestra web [Fermentum Faber](https://fermentumfaber
 
 [![Screnshot](https://firebasestorage.googleapis.com/v0/b/fermentum-app.appspot.com/o/Screenshot_2.jpg?alt=media&token=719e7056-d1d2-49d8-805e-4fe2d3e5a529)](https://fermentumfaber.com/)
 
-El proyecto se trata del desarrollo de una aplicación web que permite la gestión de una tienda virtual de una fabrica de cervezas artesanales. Como usuario la aplicacion perimte realizar la compra de productos. Aun no se encuentra con metodos de pago disponibles. Y como administrador la aplicación permite gestionar los productos y las categorias de los mismos desde una base de datos en Firebase, pudiendo acceder a los datos de las compras realizadas.
+El proyecto se trata del desarrollo de una aplicación web que permite la gestión de una tienda virtual de una fábrica de cervezas artesanales. Como usuario la aplicación permite realizar la compra de productos. Aun no se encuentra con métodos de pago disponibles. Y como administrador la aplicación permite gestionar los productos y las categorías de los mismos desde una base de datos en Firebase, pudiendo acceder a los datos de las compras realizadas.
 
 ### Realizado en:
 
@@ -38,14 +38,14 @@ En el directorio del proyecto, se puede ejecutar:
 
 ### `npm start`
 
-Ejecutar la aplicacion en modo desarrollo.\
+Ejecutar la aplicación en modo desarrollo.\
 Abrí [http://localhost:3000](http://localhost:3000) para verlo en su navegador.
 
 La pagina se recargará cuando se realizan cambios.\
 
 ### `npm test`
 
-Inicia el test de pruebas en el modo interactivo. Para más informacion visitá [running tests](https://facebook.github.io/create-react-app/docs/running-tests).
+Inicia el test de pruebas en el modo interactivo. Para más información visitá [running tests](https://facebook.github.io/create-react-app/docs/running-tests).
 
 ### `npm run build`
 
@@ -55,7 +55,7 @@ Agrupa correctamente React en modo de producción y optimiza la compilación par
 La compilación está minificada y los nombres de los archivos incluyen los hashes.\
 ¡Su aplicación está lista para ser implementada
 
-Más informacion sobre [deployment](https://facebook.github.io/create-react-app/docs/deployment).
+Más información sobre [deployment](https://facebook.github.io/create-react-app/docs/deployment).
 
 ## Uso de la aplicacion web
 
@@ -72,11 +72,11 @@ Más informacion sobre [deployment](https://facebook.github.io/create-react-app/
 
 - **Item.js** - Son las cards que se muestran en la lista de productos de ItemLis.js
 
-- **ItemDetail.js** - Componente que recibe como prop un item y muestra los detalles del mismo y se renderiza en ItemDetailContainer.js
+- **ItemDetail.js** - Componente que recibe como prop un ítem y muestra los detalles de este y se renderiza en ItemDetailContainer.js
 
 - **ItemCount.js** - Componente que se muestra en ItemDetail.js para mostrar la cantidad de productos seleccionados y enviarlas al carrito.
 
-- **Carrito.js** - Componente que recibe como prop todas las variables del contexto y muestra los productos seleccionados. Tambien a través las funciones recibidas del contexto se pueden realizar las acciones de agregar, eliminar y vaciar el carrito actualizando los estados del Provider (MiProvider)
+- **Carrito.js** - Componente que recibe como prop todas las variables del contexto y muestra los productos seleccionados. También a través las funciones recibidas del contexto se pueden realizar las acciones de agregar, eliminar y vaciar el carrito actualizando los estados del Provider (MiProvider)
 #### Providers
 - **CartContext.js** - Contexto que se usa para el manejo del carrito y los estados del carrito. En este caso son la cantidad, el total y el producto agregado.
 
