@@ -38,7 +38,6 @@ const MiProvider = ({ children }) => {
 
     const removeItem = (itemId) => { 
         const itemEnCarrito = copiaCarrito.find(i => i.id === itemId)
-        console.log(itemEnCarrito.stock)
         itemEnCarrito.cant-- 
         if(itemEnCarrito.cant === 0) {
             const itemsFiltrados = copiaCarrito.filter(item => item.id !== itemId)
@@ -52,10 +51,12 @@ const MiProvider = ({ children }) => {
 
     const addSameItem = (itemId) => { 
         const itemEnCarrito = copiaCarrito.find(i => i.id === itemId)
-        itemEnCarrito.cant++
-        setCarrito(copiaCarrito)
-        setCantidad(cantidad + 1)
-        setTotal(total + itemEnCarrito.precio)
+        if(itemEnCarrito.stock > itemEnCarrito.cant) {
+            itemEnCarrito.cant++
+            setCarrito(copiaCarrito)
+            setCantidad(cantidad + 1)
+            setTotal(total + itemEnCarrito.precio)
+        }
     }
 
     const clearCart = () => {
