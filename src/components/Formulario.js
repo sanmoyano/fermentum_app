@@ -29,7 +29,7 @@ const Formulario = () => {
         ordenDeCompraRef
             .then(res => {
                 clearCart()
-                toast.success("Compra realizada con éxito. Enviando de compra ID:" + res.id)
+                toast.success("Compra realizada con éxito. Enviando ID de compra:" + res.id)
             })
             .catch(() => toast.error("Error al realizar la compra"))
     }
