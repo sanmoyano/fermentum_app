@@ -30,7 +30,7 @@ El proyecto se trata del desarrollo de una aplicación web que permite la gesti�
 ### Realizado en:
 
 - [React.js](https://reactjs.org/)
-- El sitio se encuentra deployado en [Firebase](https://firebase.google.com/)
+- La aplicacion web se encuentra deployada en [Firebase](https://firebase.google.com/)
 
 ## Scripts
 
@@ -61,7 +61,12 @@ Más información sobre [deployment](https://facebook.github.io/create-react-app
 
 [![Mirar video](https://img.youtube.com/vi/szzeU3rCTVg/maxresdefault.jpg)](https://youtu.be/szzeU3rCTVg)
 
-### Componentes de la aplicacion
+### Librerias externas
+
+- **react-router-dom** - para manejar las rutas de la aplicación web y el navegador. [Documentación](https://reacttraining.com/react-router/web/guides/quick-start)
+- **react-toastify** - para mostrar mensajes de confirmacion y error en la aplicación web cuando se realizan los pedidos a la base de datos. [Documentación](https://fkhadra.github.io/react-toastify/)
+
+<!-- ### Componentes de la aplicacion
 #### Containers 
 
 - **ItemListContainer.js** - Muestra la lista de productos y titulos en el main. Contiene el componente ItemList.js que a su vez este contiene el componente Item.js.
@@ -78,7 +83,7 @@ Más información sobre [deployment](https://facebook.github.io/create-react-app
 
 - **Carrito.js** - Componente que recibe como prop todas las variables del contexto y muestra los productos seleccionados. También a través las funciones recibidas del contexto se pueden realizar las acciones de agregar, eliminar y vaciar el carrito actualizando los estados del Provider (MiProvider)
 #### Providers
-- **CartContext.js** - Contexto que se usa para el manejo del carrito y los estados del carrito. En este caso son la cantidad, el total y el producto agregado.
+- **CartContext.js** - Contexto que se usa para el manejo del carrito y los estados del carrito. En este caso son la cantidad, el total y el producto agregado. -->
 
 ## Contacto
  [![LinkedIn][linkedin-shield]][linkedin-url]

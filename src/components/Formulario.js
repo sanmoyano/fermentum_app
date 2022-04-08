@@ -27,9 +27,9 @@ const Formulario = () => {
         const ordenDeCompraRef = addDoc(ordenDeCompraCollection, ordenesDeCompra)
 
         ordenDeCompraRef
-            .then(() => {
+            .then(res => {
                 clearCart()
-                toast.success("Compra realizada con éxito")
+                toast.success("Compra realizada con éxito. Enviando de compra ID:" + res.id)
             })
             .catch(() => toast.error("Error al realizar la compra"))
     }
@@ -45,7 +45,7 @@ const Formulario = () => {
     return (
         <div>
             <form className="formulario__content" onSubmit={handleSubmit} action="">
-                <input placeholder="Nombre..."  onChange={handleInputChange} name="nombre" type="nombre" />
+                <input placeholder="Nombre..." onChange={handleInputChange} name="nombre" type="nombre" />
                 <input placeholder="Apellido..." onChange={handleInputChange} name="apellido" type="apellido" />
                 <input placeholder="Email..." onChange={handleInputChange} name="email" type="email" />
                 <input placeholder="Tel..." onChange={handleInputChange} name="telefono" type="telefono" />
